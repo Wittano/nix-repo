@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub }: stdenv.mkDerivation {
+{ lib, stdenv, fetchFromGitHub }: stdenv.mkDerivation {
   name = "wings-sddm-theme";
 
   src = fetchFromGitHub {
@@ -12,4 +12,12 @@
     mkdir -p $out/share/sddm/themes
     cp -r ./Wings\ SDDM\ Themes/Wings-SDDM $out/share/sddm/themes/wings
   '';
+
+  meta = with lib; {
+    homepage = "https://github.com/L4ki/Wings-Plasma-Themes";
+    description = "Wings SDDM Theme create by L4ki";
+    license = licenses.gpl3;
+    maintainers = with maintainers; [ Wittano ];
+    platforms = platforms.linux;
+  };
 }

@@ -8,7 +8,7 @@
 
     # TODO Add autoimporting packages from pkgs directory
     packages.x86_64-linux = {
-      wings-sddm-theme = self.pkgs.callPackage ./pkgs/wings-sddm-theme { };
+      wings-sddm-theme = self.pkgs.callPackage ./pkgs/sddm/theme/wings-sddm-theme { };
     };
 
     packages.x86_64-linux.default = self.packages.x86_64-linux.wings-sddm-theme;
