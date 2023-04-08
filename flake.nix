@@ -1,17 +1,23 @@
 {
   description = "Wittano nixpkgs repository";
 
-  outputs = { self, nixpkgs }: {
-    pkgs = import nixpkgs {
-      system = "x86_64-linux";
+  outputs = { self, nixpkgs }:
+    let
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+      };
+
+      lib = nixpkgs.lib.extend (self: super: {
+        my = import ./lib { inherit pkgs; lib = self; };
+      });
+    in
+    {
+      inherit lib;
+
+      packages.x86_64-linux = self.lib.my.pkgs.importPkgs ./pkgs;
+
+      # TODO Use other package as default package
+      defaultPackage.x86_64-linux = self.packages.x86_64-linux.wings;
+
     };
-
-    # TODO Add autoimporting packages from pkgs directory
-    packages.x86_64-linux = {
-      wings-sddm-theme = self.pkgs.callPackage ./pkgs/sddm/theme/wings-sddm-theme { };
-    };
-
-    packages.x86_64-linux.default = self.packages.x86_64-linux.wings-sddm-theme;
-
-  };
 }
