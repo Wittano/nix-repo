@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub }: stdenv.mkDerivation {
+{ lib, stdenv, fetchFromGitHub, pkgs }: stdenv.mkDerivation {
   name = "dexy-sddm-theme";
 
   src = fetchFromGitHub {
@@ -7,6 +7,10 @@
     rev = "285c928eedecbc438013396292dfd346b73082e7";
     sha256 = "sha256-nx1xNdbbP1slN4Zm/gFg8m8oCLUOnZDZiLOucY2C5d8=";
   };
+
+  dontWrapQtApps = true;
+
+  nativeBuildInputs = with pkgs; [ libsForQt5.plasma-framework ];
 
   installPhase = ''
     mkdir -p $out/share/sddm/themes
