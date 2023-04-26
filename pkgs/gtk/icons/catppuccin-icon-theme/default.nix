@@ -8,11 +8,15 @@
     sha256 = "sha256-wJnbXXWKX0mcqRYyE1Vs4CrgWXTwfk3kRC2IhKqQ0RI=";
   };
 
-  propagatedBuildInputs = with pkgs; [ gtk-engine-murrine ];
+  nativeBuildInputs = with pkgs; [ gtk3 ];
+
+  propagatedBuildInputs = with pkgs; [ gtk-engine-murrine gnome.gnome-themes-extra ];
 
   installPhase = ''
     mkdir -p $out/share/icons/catppuccin
     cp -r ./icons/* $out/share/icons/catppuccin
+
+    gtk-update-icon-cache $out/share/icons/catppuccin/*
   '';
 
   meta = with lib; {
