@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub }: stdenv.mkDerivation {
+{ lib, pkgs, stdenv, fetchFromGitHub }: stdenv.mkDerivation {
   name = "dexy-sddm-theme";
 
   src = fetchFromGitHub {

@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub }: stdenv.mkDerivation {
+{ lib, pkgs, stdenv, fetchFromGitHub }: stdenv.mkDerivation {
   name = "wings-sddm-theme";
 
   src = fetchFromGitHub {
