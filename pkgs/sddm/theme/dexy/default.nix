@@ -8,6 +8,11 @@
     sha256 = "sha256-nx1xNdbbP1slN4Zm/gFg8m8oCLUOnZDZiLOucY2C5d8=";
   };
 
+  propagatedBuildInputs = with pkgs.libsForQt5; [
+    plasma-framework
+    plasma-workspace
+  ];
+
   installPhase = ''
     mkdir -p $out/share/sddm/themes
     cp -r ./Dexy-Color-SDDM $out/share/sddm/themes/dexy

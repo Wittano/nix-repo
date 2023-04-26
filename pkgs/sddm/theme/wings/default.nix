@@ -8,6 +8,11 @@
     sha256 = "sha256-9m3na50GnUXOOURgxHytwzulEsoe1v1KTC1QY1XovAo=";
   };
 
+  propagatedBuildInputs = with pkgs.libsForQt5; [
+    plasma-framework
+    plasma-workspace
+  ];
+
   installPhase = ''
     mkdir -p $out/share/sddm/themes
     cp -r ./Wings\ SDDM\ Themes/Wings-SDDM $out/share/sddm/themes/wings
