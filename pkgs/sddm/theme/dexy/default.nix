@@ -8,6 +8,8 @@
     sha256 = "sha256-nx1xNdbbP1slN4Zm/gFg8m8oCLUOnZDZiLOucY2C5d8=";
   };
 
+  dontWrapQtApps = true;
+
   propagatedBuildInputs = with pkgs.libsForQt5; [
     plasma-framework
     plasma-workspace
