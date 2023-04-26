@@ -13,10 +13,10 @@
   propagatedBuildInputs = with pkgs; [ gtk-engine-murrine gnome.gnome-themes-extra ];
 
   installPhase = ''
-    mkdir -p $out/share/icons/catppuccin
-    cp -r ./icons/* $out/share/icons/catppuccin
+    mkdir -p $out/share/icons
+    cp -r ./icons/* $out/share/icons
 
-    gtk-update-icon-cache $out/share/icons/catppuccin/*
+    gtk-update-icon-cache $out/share/icons/*
   '';
 
   meta = with lib; {
