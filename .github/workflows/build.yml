@@ -5,7 +5,7 @@ jobs:
   build:
     strategy:
       matrix:
-        packages: [catppuccin-icon-theme nixos-blur dexy sugar-candy wings]
+        packages: [catppuccin-icon-theme, nixos-blur, dexy, sugar-candy, wings]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
