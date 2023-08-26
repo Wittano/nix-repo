@@ -21,4 +21,4 @@ jobs:
       - name: "Check nix packages"
         run: nix flake check
       - name: "Build packages"
-        run: "nix build .#packages.x86_64-linux.${{ matrix.profile }}"
+        run: "nix build .#packages.x86_64-linux.${{ matrix.packages }}"
