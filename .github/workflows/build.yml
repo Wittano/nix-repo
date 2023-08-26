@@ -1,4 +1,4 @@
-name: build-nix-repo
+name: Build Wittano nix repository
 run-name: Build Wittano nix repository
 on: [push]
 jobs:
