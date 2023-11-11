@@ -7,7 +7,7 @@
 , xcursorgen ? pkgs.xorg.xcursorgen
 , gtk-engine-murrine
 , gnome-themes-extra ? pkgs.gnome.gnome-themes-extra
-}: stdenv.mkDerivation {
+}: stdenv.mkDerivation rec {
   name = "colloid-cursors-theme";
 
   src = fetchFromGitHub {
@@ -27,8 +27,8 @@
   '';
 
   installPhase = ''
-    mkdir -p $out/share/icons 
-    cp -r ./dist/* $out/share/icons
+    mkdir -p $out/share/icons/${name}
+    cp -r ./dist/* $out/share/icons/${name}
   '';
 
   meta = with lib; {
