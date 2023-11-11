@@ -1,4 +1,10 @@
-{ lib, stdenv, fetchgit, pkgs }: stdenv.mkDerivation {
+{ lib
+, stdenv
+, fetchgit
+, plasma-framework ? pkgs.libsForQt5.plasma-framework
+, plasma-workspace ? pkgs.libsForQt5.plasma-workspace
+, pkgs
+}: stdenv.mkDerivation {
   name = "suger-candy-sddm-theme";
 
   src = fetchgit {
@@ -9,7 +15,7 @@
 
   dontWrapQtApps = true;
 
-  propagatedBuildInputs = with pkgs.libsForQt5; [
+  propagatedBuildInputs = [
     plasma-framework
     plasma-workspace
   ];

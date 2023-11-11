@@ -1,4 +1,10 @@
-{ lib, pkgs, stdenv, fetchFromGitHub }: stdenv.mkDerivation {
+{ lib
+, gtk3
+, gtk-engine-murrine
+, stdenv
+, fetchFromGitHub
+, gnome-themes-extra ? pkgs.gnome.gnome-themes-extra
+}: stdenv.mkDerivation {
   name = "catppuccin-gtk-icon-theme";
 
   src = fetchFromGitHub {
@@ -8,9 +14,9 @@
     sha256 = "sha256-wJnbXXWKX0mcqRYyE1Vs4CrgWXTwfk3kRC2IhKqQ0RI=";
   };
 
-  nativeBuildInputs = with pkgs; [ gtk3 ];
+  nativeBuildInputs = [ gtk3 ];
 
-  propagatedBuildInputs = with pkgs; [ gtk-engine-murrine gnome.gnome-themes-extra ];
+  propagatedBuildInputs = [ gtk-engine-murrine gnome-themes-extra ];
 
   installPhase = ''
     mkdir -p $out/share/icons

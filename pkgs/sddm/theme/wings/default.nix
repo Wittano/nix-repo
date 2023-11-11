@@ -1,4 +1,9 @@
-{ lib, pkgs, stdenv, fetchFromGitHub }: stdenv.mkDerivation {
+{ lib
+, stdenv
+, plasma-framework ? pkgs.libsForQt5.plasma-framework
+, plasma-workspace ? pkgs.libsForQt5.plasma-workspace
+, fetchFromGitHub
+}: stdenv.mkDerivation {
   name = "wings-sddm-theme";
 
   src = fetchFromGitHub {
@@ -10,7 +15,7 @@
 
   dontWrapQtApps = true;
 
-  propagatedBuildInputs = with pkgs.libsForQt5; [
+  propagatedBuildInputs = [
     plasma-framework
     plasma-workspace
   ];
