@@ -27,7 +27,6 @@
   '';
 
   installPhase = ''
-    cd ./cursors
     mkdir -p $out/share/icons 
     cp -r ./dist/* $out/share/icons
   '';
