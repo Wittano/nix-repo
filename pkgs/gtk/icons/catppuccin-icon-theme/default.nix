@@ -2,6 +2,7 @@
 , gtk3
 , gtk-engine-murrine
 , stdenv
+, pkgs
 , fetchFromGitHub
 , gnome-themes-extra ? pkgs.gnome.gnome-themes-extra
 }: stdenv.mkDerivation {

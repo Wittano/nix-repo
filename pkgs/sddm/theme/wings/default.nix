@@ -1,5 +1,6 @@
 { lib
 , stdenv
+, pkgs
 , plasma-framework ? pkgs.libsForQt5.plasma-framework
 , plasma-workspace ? pkgs.libsForQt5.plasma-workspace
 , fetchFromGitHub
